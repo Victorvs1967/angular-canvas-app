@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
-import confetti from 'canvas-confetti';
+// import confetti from 'canvas-confetti';
+import { ConfettiService } from './services/confetti.service';
 
 @Component({
   selector: 'app-root',
@@ -14,16 +15,18 @@ import confetti from 'canvas-confetti';
 export class AppComponent {
   title = 'angular-canvas-app';
 
-  celebrate() {
-    const duration = 5000;
+  public confettiService = inject(ConfettiService);
 
-    confetti({
-      particleCount: 100,
-      spread: 160,
-      origin: { y: 1 },
-      colors: ['#FF4500', '#008080', '#FFD700']
-    });
+  // celebrate() {
+  //   const duration = 5000;
 
-    setTimeout(() => confetti.reset(), duration);
-  }
+  //   confetti({
+  //     particleCount: 100,
+  //     spread: 160,
+  //     origin: { y: 1 },
+  //     colors: ['#FF4500', '#008080', '#FFD700']
+  //   });
+
+  //   setTimeout(() => confetti.reset(), duration);
+  // }
 }
